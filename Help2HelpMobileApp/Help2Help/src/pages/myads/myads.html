@@ -1,0 +1,37 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <h3 class="center">Help2Help</h3>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="showInsertAd()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+    <h2 class="center">My ads</h2>
+  <ion-list>
+  <ion-item-sliding *ngFor="let ad of ads" >
+    <ion-item *ngIf="ad.userId==2">
+      <ion-icon (click)="editAd(ad)" name="build" item-left></ion-icon>
+      <h2>{{ ad.title }}</h2>
+      <p>{{ ad.description }}</p>
+      <p item-right>
+        {{ ad.location }}
+        {{ ad.date }}
+        {{ ad.accepted }}
+      </p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="removeAd(ad)"><ion-icon name="trash"></ion-icon></button>
+    </ion-item-options>
+  </ion-item-sliding>
+ </ion-list>
+
+</ion-content>
